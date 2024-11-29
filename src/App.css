@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  height: 100%;  /* Tam yükseklik */
+  margin: 0; /* Varsayılan margin sıfırlanmalı */
+  overflow: hidden !important; /* Sayfada scrollbar'ı gizle */
+  scrollbar-width: none;  /* Firefox için */
+}
+.scrollable-container {
+  height: 100vh; /* Görünür alan yüksekliği */
+  overflow-y: scroll; /* Yalnızca dikey kaydırma */
+  width: 0;
+}
+/* Webkit tabanlı tarayıcılar (Chrome, Safari) için scrollbar'ı gizle */
+*::-webkit-scrollbar {
+  display: none; /* Webkit tabanlı tarayıcılarda scrollbar'ı gizler */
+}
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+
+}
+* {
+  scrollbar-width: none;  /* Firefox için */
+  -ms-overflow-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-body {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card:hover .card-body {
+  background-color: rgba(255, 255, 255, 1); /* Hover ile kart alt kısmı daha belirgin olur */
 }
 
-.App-link {
-  color: #61dafb;
+.card:hover .p-3 {
+  opacity: 1; /* Hover olduğunda detaylar görünür */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Hover efektinde büyüme */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hoverda gölge ekleme */
 }
