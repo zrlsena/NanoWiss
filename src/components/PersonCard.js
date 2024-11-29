@@ -7,7 +7,7 @@ const PersonCard = ({ name, role, img, details }) => {
       <Card
         className="shadow-lg border-0 text-center position-relative"
         style={{
-          width: '16rem',  // Kartın genişliği
+          width: '20rem',  // Kartın genişliği
           height: '350px', // Yükseklik sabit
           borderRadius: '12px',
           overflow: 'hidden',
