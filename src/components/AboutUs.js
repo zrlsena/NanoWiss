@@ -1,142 +1,122 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import teamData from './teamData';
-import PersonCard from './PersonCard';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaUserAlt, FaBullseye, FaUsers, FaEye } from 'react-icons/fa';
 
 const AboutUs = () => {
+  const [section, setSection] = useState('whoWeAre');
+
+  const handleClick = (sectionName) => {
+    setSection(sectionName);
+  };
+
   return (
-    <div style={{ backgroundColor: '#f8f9fa', padding: '60px 0' }}>
-      <Container>
-        <Row className="text-center mb-5">
-          <Col>
-            <h2
-              className="display-4 font-weight-bold"
-              style={{
-                fontSize: '3rem',
-                color: '#343a40',
-                textTransform: 'uppercase',
-              }}
-            >
-              Hakkımızda
+    <div id="about" style={{ padding: '5%', fontFamily: 'Arial, sans-serif', height: 'auto', marginRight: '0px', marginLeft: '0px', backgroundColor:'rgb(66 39 104)'}}>
+      <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
+        <div className="row">
+          {/* Left Section */}
+          <div className="col-md-8" style={{ padding: '5%', height: 'auto', minHeight: '250px' }}>
+            <h2 style={{ fontSize: '40px', fontWeight: 'bold',color:'#efeeec' }}>
+              {section === 'whoWeAre'
+                ? 'Who We Are'
+                : section === 'ourPurpose'
+                ? 'What is Our Purpose'
+                : 'Our Mission and Vision'}
             </h2>
-            <p
-              className="lead"
+            <p style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '300px',color:'#efeeec' }}>
+              {section === 'whoWeAre'
+                ? "nanoWISS is an innovative startup that originated from a shared mission to tackle pressing challenges such as Cystic Fibrosis and biofilm-related infections. Specializing in the development of autonomous devices for optimizing and standardizing nanoparticle production, we also create high-quality nanoparticles tailored for various applications. Our multidisciplinary team integrates expertise in nanotechnology, biotechnology, and engineering to deliver groundbreaking solutions that bridge science and industry."
+                : section === 'ourPurpose'
+                ? 'At nanoWISS, our primary goal is the improvement of human life. By addressing critical global challenges, we aim to revolutionize nanoparticle synthesis through precise, efficient, and accessible technologies. Our solutions enable advancements across various fields, driving innovation while fostering sustainability and quality of life improvements worldwide.'
+                : 'NanoWISS is a deep technology and social impact startup that is revolutionizing nanoparticle production to treat biofilm bacterial infections in cystic fibrosis. Our goal is to improve the quality of life for those affected by enabling patients to breathe deeper through efficient nanoparticle production. We are committed to raising awareness of rare diseases while fostering a future where scientific innovation leads to meaningful social change, creating a healthier and more informed world.'}
+            </p>
+          </div>
+
+          {/* Right Buttons Section */}
+          <div className="col-md-4" style={{ gap:'15px', paddingInline: '20px', padding: '5%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <button
+              onClick={() => handleClick('whoWeAre')}
               style={{
-                fontSize: '1.2rem',
-                color: '#6c757d',
+                width: '45%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'transparent',
+                border: 'none',
+                textAlign: 'center',
+                cursor: 'pointer',
+                marginBottom: '20px'
               }}
             >
-              NanoWiss, ileri düzey nanoteknoloji çözümleri ile geleceği şekillendiriyor.
-            </p>
-          </Col>
-        </Row>
+              <FaUserAlt style={{ fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Who We Are</span>
+            </button>
 
-        {/* Misyon ve Vizyon */}
-        <Row className="mb-5">
-          <Col md={6} className="mb-4">
-            <Card className="shadow-sm border-light">
-              <Card.Body>
-                <h4 className="font-weight-bold" style={{ color: '#007bff' }}>
-                  Misyonumuz
-                </h4>
-                <p style={{ color: '#495057' }}>
-                  NanoWiss, nanoteknoloji alanındaki yenilikçi çözümlerle insan hayatını iyileştirmeyi hedefliyor.
-                  Çevre dostu ve sürdürülebilir teknoloji ile global ölçekte etkili projeler geliştirmekteyiz.
-                </p>
-                <Button variant="outline-primary">Detaylı Bilgi</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+            <button
+              onClick={() => handleClick('ourPurpose')}
+              style={{
+                width: '45%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'transparent',
+                border: 'none',
+                textAlign: 'center',
+                cursor: 'pointer',
+                marginBottom: '20px'
+              }}
+            >
+              <FaBullseye style={{  fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Purpose</span>
+            </button>
 
-          <Col md={6}>
-            <Card className="shadow-sm border-light">
-              <Card.Body>
-                <h4 className="font-weight-bold" style={{ color: '#007bff' }}>
-                  Vizyonumuz
-                </h4>
-                <p style={{ color: '#495057' }}>
-                  Geleceğin teknolojilerini şekillendiren bir lider olmak, sürdürülebilir ve güvenli nanoteknoloji
-                  çözümleri ile insanlığa katkı sağlamak.
-                </p>
-                <Button variant="outline-primary">Detaylı Bilgi</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+            <Link to="/team" style={{ textDecoration: 'none', width: '45%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'transparent',
+                border: 'none',
+                textAlign: 'center',
+                cursor: 'pointer', }}>
+              <button
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  marginBottom: '20px'
+                }}
+              >
+                <FaUsers style={{ fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
+                <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Team</span>
+              </button>
+            </Link>
 
-        {/* İstatistikler Bölümü */}
-        <Row className="text-center mb-5">
-          <Col>
-            <h3 className="font-weight-bold" style={{ color: '#007bff' }}>
-              NanoWiss İstatistikleri
-            </h3>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col md={3} className="mb-4">
-            <Card className="shadow-sm text-center border-light">
-              <Card.Body>
-                <h1 className="display-4" style={{ color: '#007bff' }}>
-                  100+
-                </h1>
-                <p style={{ color: '#495057' }}>Proje Tamamlandı</p>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md={3} className="mb-4">
-            <Card className="shadow-sm text-center border-light">
-              <Card.Body>
-                <h1 className="display-4" style={{ color: '#007bff' }}>
-                  50+
-                </h1>
-                <p style={{ color: '#495057' }}>Uluslararası İşbirliği</p>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md={3} className="mb-4">
-            <Card className="shadow-sm text-center border-light">
-              <Card.Body>
-                <h1 className="display-4" style={{ color: '#007bff' }}>
-                  200+
-                </h1>
-                <p style={{ color: '#495057' }}>Başarıyla Uygulanan Teknoloji</p>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md={3} className="mb-4">
-            <Card className="shadow-sm text-center border-light">
-              <Card.Body>
-                <h1 className="display-4" style={{ color: '#007bff' }}>
-                  24/7
-                </h1>
-                <p style={{ color: '#495057' }}>Destek ve Hizmet</p>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-
-        {/* Ekip Tanıtımı */}
-        <Container>
-        <h2 className="text-center mb-5" style={{ color: '#007bff' }}>
-          Meet Our Team
-        </h2>
-        <Row>
-          {teamData.map((member) => (
-            <PersonCard
-              key={member.id}
-              name={member.name}
-              role={member.role}
-              img={member.img}
-              details={member.details}
-            />
-          ))}
-        </Row>
-      </Container>
-      </Container>
+            <button
+              onClick={() => handleClick('ourMission')}
+              style={{
+                width: '45%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'transparent',
+                border: 'none',
+                textAlign: 'center',
+                cursor: 'pointer'
+              }}
+            >
+              <FaEye style={{  fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec'}} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Vision-Mission</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

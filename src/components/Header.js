@@ -1,31 +1,95 @@
-import React from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-  return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-      <Container>
-        <Navbar.Brand href="#home">NanoWiss</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About Us</Nav.Link>
-            <Nav.Link href="#services">Services</Nav.Link>
-            <Nav.Link href="#products">Products</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+  const location = useLocation();
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-            {/* Dropdown menüsü */}
-            <NavDropdown title="More" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#achievements">Achievements</NavDropdown.Item>
-              <NavDropdown.Item href="#team">Team</NavDropdown.Item>
-              <NavDropdown.Item href="#partners">Partners</NavDropdown.Item>
-            </NavDropdown>
+  const handleScroll = () => {
+    if (location.pathname !== '/') return; // Sadece ana sayfada kontrol yap
+    const heroSection = document.getElementById('home');
+    if (!heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    setIsHeroVisible(rect.bottom > 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location.pathname]);
+
+  const scrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+    } else {
+      const section = document.getElementById(id);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <Navbar
+      bg={isHeroVisible ? 'dark' : 'light'}
+      variant={isHeroVisible ? 'dark' : 'light'}
+      expand="lg"
+      fixed="top"
+      className={`shadow-sm ${isHeroVisible ? '' : 'navbar-light'}`}
+    >
+      <Container>
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          className="fw-bold"
+          style={{ color: isHeroVisible ? 'white' : 'purple' }}
+        >
+          NanoWiss
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link
+              as="span"
+              className={isHeroVisible ? 'text-light' : 'text-dark'}
+              onClick={() => scrollToSection('home')}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              as="span"
+              className={isHeroVisible ? 'text-light' : 'text-dark'}
+              onClick={() => scrollToSection('about')}
+            >
+              About Us
+            </Nav.Link>
+            <Nav.Link
+              as="span"
+              className={isHeroVisible ? 'text-light' : 'text-dark'}
+              onClick={() => scrollToSection('achievements')}
+            >
+              Achievements
+            </Nav.Link>
+            <Nav.Link
+              as="span"
+              className={isHeroVisible ? 'text-light' : 'text-dark'}
+              onClick={() => scrollToSection('products')}
+            >
+              Products
+            </Nav.Link>
+            <Nav.Link
+              as="span"
+              className={isHeroVisible ? 'text-light' : 'text-dark'}
+              onClick={() => scrollToSection('contact')}
+            >
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Header;

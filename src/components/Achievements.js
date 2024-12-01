@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 const Achievements = () => {
   return (
-    <Container fluid className="py-5" id="achievements">
+    <Container fluid className="py-5" id="achievements" >
       <h2 className="text-center text-primary mb-4">Our Achievements</h2>
       <p className="text-center mb-5 text-muted">
         Here are some of the milestones we've achieved in the nano-technology field. We continue to innovate and lead the industry.

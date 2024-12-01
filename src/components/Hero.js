@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import {  Container, Row, Col } from "react-bootstrap";
 
 const Hero = () => {
   return (
-    <div
+    <div id="home"
       style={{
         position: "relative",
         height: "100vh", // Sayfa yüksekliği
@@ -31,7 +31,7 @@ const Hero = () => {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)", // Başlık için gölge efekti
               }}
             >
-              NanoWiss: Yenilikçi Nanoteknoloji Çözümleri
+              NanoWiss: Nanoparticles for a Deeper Breaths
             </h1>
             <p
               className="lead"
@@ -40,21 +40,9 @@ const Hero = () => {
                 textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)", // Paragraf için gölge efekti
               }}
             >
-              Geleceği şekillendiren nanoteknoloji çözümleriyle sizlere daha
-              parlak bir dünya sunuyoruz.
+              Transforming lives with groundbreaking solutions for rare diseases.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              href="#about"
-              className="mt-3"
-              style={{
-                padding: "10px 25px", // Buton içeriği için biraz genişlik ekliyoruz
-                fontSize: "1.1rem", // Buton yazı boyutunu büyütüyoruz
-              }}
-            >
-              Hakkımızda
-            </Button>
+            
           </Col>
         </Row>
       </Container>

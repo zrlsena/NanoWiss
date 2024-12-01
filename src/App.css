@@ -1,10 +1,12 @@
 * body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Space Grotesk', 'Source Han Sans', sans-serif !important;
   background-color: #f9f9f9;
   height: 100%;  /* Tam yükseklik */
   margin: 0; /* Varsayılan margin sıfırlanmalı */
   overflow: hidden !important; /* Sayfada scrollbar'ı gizle */
   scrollbar-width: none;  /* Firefox için */
+  scroll-behavior: smooth;
+  
 }
 .scrollable-container {
   height: 100vh; /* Görünür alan yüksekliği */
@@ -20,9 +22,11 @@
   width: 0;
 
 }
+
 * {
   scrollbar-width: none;  /* Firefox için */
   -ms-overflow-style: none;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 header {
@@ -32,7 +36,7 @@ header {
 }
 
 .card-body {
-  padding: 20px;
+  padding: 20px 20px;
   background-color: rgba(255, 255, 255, 0.8);
   transition: background-color 0.3s ease;
 }
@@ -52,4 +56,12 @@ header {
 .card:hover {
   transform: scale(1.05); /* Hover efektinde büyüme */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hoverda gölge ekleme */
+}
+
+.custom-line {
+  border: none;
+  height: 1px;  /* Controls thickness */
+  background-color: #333;  /* Color of the line */
+  width: 50%;  /* Length of the line (adjust to your preference) */
+  margin: 20px auto;  /* Adds margin to center it and provide space around */
 }
