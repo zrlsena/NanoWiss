@@ -3,7 +3,6 @@
   background-color: #f9f9f9;
   height: 100%;  /* Tam yükseklik */
   margin: 0; /* Varsayılan margin sıfırlanmalı */
-  overflow: hidden !important; /* Sayfada scrollbar'ı gizle */
   scrollbar-width: none;  /* Firefox için */
   scroll-behavior: smooth;
   
@@ -21,6 +20,14 @@
   display: none;
   width: 0;
 
+}
+
+:root{
+  --darkpurple: #470069;
+  --purple: #7F03BB;
+  --lightpurple: #BB58FF;
+  --blue: #1733B8;
+  --white: #efeeec;
 }
 
 * {
@@ -64,4 +71,21 @@ header {
   background-color: #333;  /* Color of the line */
   width: 50%;  /* Length of the line (adjust to your preference) */
   margin: 20px auto;  /* Adds margin to center it and provide space around */
+}
+.achievement-icon {
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+}
+/* Transparan navbar için */
+.navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.4); /* Hafif şeffaf siyah */
+  backdrop-filter: blur(10px); /* Blur efekti */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Solid navbar için */
+.navbar-solid {
+  background-color: white; /* Düz beyaz */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }

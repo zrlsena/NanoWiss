@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <div>
-        <h1>Welcome to Home Page</h1>
       <Header />
       <Hero />
       <AboutUs />

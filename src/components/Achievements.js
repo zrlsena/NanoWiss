@@ -1,47 +1,43 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const Achievements = () => {
   return (
-    <Container fluid className="py-5" id="achievements" >
-      <h2 className="text-center text-primary mb-4">Our Achievements</h2>
-      <p className="text-center mb-5 text-muted">
-        Here are some of the milestones we've achieved in the nano-technology field. We continue to innovate and lead the industry.
+    <Container fluid className="py-5 bg-light" id="achievements">
+      {/* Header Section */}
+      <h2 className="text-center text-dark fw-bold mb-4">What We Have Done So Far</h2>
+      <p className="text-center text-muted mb-5">
+        At NanoWiss, we are proud of our remarkable journey, highlighted by our innovative milestones and strategic collaborations.
       </p>
-      
-      <Row className="g-4">
-        <Col md={4}>
-          <Card className="shadow-lg border-0">
-            <Card.Body>
-              <Card.Title className="text-center text-primary">Innovation Award</Card.Title>
-              <Card.Text>
-                We were awarded for our outstanding innovation in nano-technology solutions, showcasing our cutting-edge technology.
+
+      {/* Achievements Section */}
+      <Row className="justify-content-center g-4">
+        {/* TeknoPark Partnership */}
+        <Col md={6} lg={5}>
+          <Card className="h-100 shadow-sm border-0">
+            <Card.Body className="d-flex flex-column align-items-center">
+              <div className="achievement-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-4" style={{ width: '80px', height: '80px' }}>
+                <i className="bi bi-building"></i> {/* İkon için Bootstrap Icons kullanıldı */}
+              </div>
+              <Card.Title className="text-center fw-bold">TeknoPark Partnership</Card.Title>
+              <Card.Text className="text-center mt-3">
+                We’ve partnered with TeknoPark, empowering our research capabilities and providing state-of-the-art facilities for innovation.
               </Card.Text>
-              <Button variant="dark" className="w-100">Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
 
-        <Col md={4}>
-          <Card className="shadow-lg border-0">
-            <Card.Body>
-              <Card.Title className="text-center text-primary">Partnership with Global Leaders</Card.Title>
-              <Card.Text>
-                Our partnership with industry leaders has set new standards in nano-technology research and development.
+        {/* Kuluçka Ortaklığı */}
+        <Col md={6} lg={5}>
+          <Card className="h-100 shadow-sm border-0">
+            <Card.Body className="d-flex flex-column align-items-center">
+              <div className="achievement-icon bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center mb-4" style={{ width: '80px', height: '80px' }}>
+                <i className="bi bi-lightbulb"></i> {/* İkon için Bootstrap Icons kullanıldı */}
+              </div>
+              <Card.Title className="text-center fw-bold">Kuluçka Ortaklığı</Card.Title>
+              <Card.Text className="text-center mt-3">
+                Our collaboration with incubation centers has fostered groundbreaking nano-technology solutions, accelerating our impact.
               </Card.Text>
-              <Button variant="dark" className="w-100">Learn More</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-
-        <Col md={4}>
-          <Card className="shadow-lg border-0">
-            <Card.Body>
-              <Card.Title className="text-center text-primary">Breakthrough Research</Card.Title>
-              <Card.Text>
-                We made significant contributions to the understanding and development of new nano-tech materials, advancing the field.
-              </Card.Text>
-              <Button variant="dark" className="w-100">Learn More</Button>
             </Card.Body>
           </Card>
         </Col>

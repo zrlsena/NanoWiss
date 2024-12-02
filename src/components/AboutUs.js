@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaUserAlt, FaBullseye, FaUsers, FaEye } from 'react-icons/fa';
 
 const AboutUs = () => {
+    const darkpurple = "#470069"; 
+    const purple = "#7F03BB"; // Mavi
+    const lightpurple = "#BB58FF";
+    const blue = "#1733B8"; // Mavi
+    const white = "#efeeec";
+
   const [section, setSection] = useState('whoWeAre');
 
   const handleClick = (sectionName) => {
@@ -10,12 +16,12 @@ const AboutUs = () => {
   };
 
   return (
-    <div id="about" style={{ padding: '5%', fontFamily: 'Arial, sans-serif', height: 'auto', marginRight: '0px', marginLeft: '0px', backgroundColor:'rgb(66 39 104)'}}>
+    <div id="about" style={{ padding: '2%', fontFamily: 'Arial, sans-serif', height: 'auto', marginRight: '0px', marginLeft: '0px', backgroundColor:darkpurple,}}>
       <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
         <div className="row">
           {/* Left Section */}
           <div className="col-md-8" style={{ padding: '5%', height: 'auto', minHeight: '250px' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: 'bold',color:'#efeeec' }}>
+            <h2 style={{ fontSize: '40px', fontWeight: 'bold',color:white }}>
               {section === 'whoWeAre'
                 ? 'Who We Are'
                 : section === 'ourPurpose'
@@ -32,7 +38,7 @@ const AboutUs = () => {
           </div>
 
           {/* Right Buttons Section */}
-          <div className="col-md-4" style={{ gap:'15px', paddingInline: '20px', padding: '5%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          <div className="col-md-4" style={{ gap:'15px', paddingInline: '20px', padding: '5%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' , }}>
             <button
               onClick={() => handleClick('whoWeAre')}
               style={{
@@ -48,8 +54,8 @@ const AboutUs = () => {
                 marginBottom: '20px'
               }}
             >
-              <FaUserAlt style={{ fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
-              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Who We Are</span>
+              <FaUserAlt style={{ fontSize: '82px', marginBottom: '10px', color: darkpurple, borderRadius: '41px', padding: '21px', backgroundColor: white, }} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: white, }}>Who We Are</span>
             </button>
 
             <button
@@ -67,35 +73,62 @@ const AboutUs = () => {
                 marginBottom: '20px'
               }}
             >
-              <FaBullseye style={{  fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
-              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Purpose</span>
+              <FaBullseye style={{  fontSize: '82px', marginBottom: '10px', color: darkpurple, borderRadius: '41px', padding: '21px', backgroundColor: white }} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: white }}>Our Purpose</span>
             </button>
 
-            <Link to="/team" style={{ textDecoration: 'none', width: '45%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'transparent',
-                border: 'none',
-                textAlign: 'center',
-                cursor: 'pointer', }}>
-              <button
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  marginBottom: '20px'
-                }}
-              >
-                <FaUsers style={{ fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec' }} />
-                <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Team</span>
-              </button>
-            </Link>
+            <Link
+  to="/team"
+  style={{
+    textDecoration: 'none',
+    width: '45%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    border: 'none',
+    textAlign: 'center',
+    cursor: 'pointer',
+    padding: '10px', // Dışarıdan kenar boşlukları
+    boxSizing: 'border-box', // Kenar boşluklarını hesaba kat
+  }}
+>
+  <button
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%', // Buton Link'in genişliğiyle uyumlu olacak
+      height: 'auto', // Yükseklik içeriğe göre
+      backgroundColor: 'transparent',
+      border: 'none',
+      padding: '0', // Fazladan boşluk olmaması için
+    }}
+  >
+    <FaUsers
+      style={{
+        fontSize: '82px',
+        marginBottom: '10px',
+        color: darkpurple,
+        borderRadius: '41px',
+        padding: '21px',
+        backgroundColor: 'white',
+      }}
+    />
+    <span
+      style={{
+        fontSize: '14px',
+        fontWeight: 'bold',
+        color: 'white',
+      }}
+    >
+      Our Team
+    </span>
+  </button>
+</Link>
+
 
             <button
               onClick={() => handleClick('ourMission')}
@@ -111,8 +144,8 @@ const AboutUs = () => {
                 cursor: 'pointer'
               }}
             >
-              <FaEye style={{  fontSize: '82px', marginBottom: '10px', color: 'rgb(66 39 104)', borderRadius: '41px', padding: '21px', backgroundColor: '#efeeec'}} />
-              <span style={{ fontSize: '14px', fontWeight: 'bold',color: '#efeeec' }}>Our Vision-Mission</span>
+              <FaEye style={{  fontSize: '82px', marginBottom: '10px', color: darkpurple, borderRadius: '41px', padding: '21px', backgroundColor: white}} />
+              <span style={{ fontSize: '14px', fontWeight: 'bold',color: white }}>Our Vision-Mission</span>
             </button>
           </div>
         </div>
