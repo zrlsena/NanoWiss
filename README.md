@@ -11,6 +11,7 @@ The landing page serves as the main entry point for users. It includes interacti
 
 ![Ekran görüntüsü 2024-12-04 142651](https://github.com/user-attachments/assets/d8574a38-6ea4-40a2-bef7-92f7b56ece49)
 ![Ekran görüntüsü 2024-12-04 142709](https://github.com/user-attachments/assets/b4d0af4e-7c06-4289-b50c-e301319d5355)
+![Ekran görüntüsü 2024-12-04 142735](https://github.com/user-attachments/assets/5deb6b43-e979-41b4-ac95-be082b73d88e)
 
 
 ---
