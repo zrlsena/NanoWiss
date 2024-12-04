@@ -7,7 +7,10 @@ const Header = () => {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const handleScroll = () => {
-    if (location.pathname !== "/") return; // Sadece ana sayfada kontrol yap
+    if (location.pathname !== "/") {
+      setIsHeroVisible(false); // Diğer sayfalarda solid yap
+      return;
+    }
     const heroSection = document.getElementById("home");
     if (!heroSection) return;
     const rect = heroSection.getBoundingClientRect();
@@ -15,6 +18,11 @@ const Header = () => {
   };
 
   useEffect(() => {
+    if (location.pathname !== "/") {
+      setIsHeroVisible(false); // Sayfa değiştiğinde transparanlığı kapat
+    } else {
+      setIsHeroVisible(true); // Ana sayfadaysa transparanlığı kontrol et
+    }
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -39,6 +47,7 @@ const Header = () => {
           ? "navbar-transparent" // Transparan sınıfı
           : "navbar-solid" // Düz arka plan sınıfı
       }`}
+      style={{ height: "80px" }}
     >
       <Container>
         <Navbar.Brand
@@ -56,6 +65,7 @@ const Header = () => {
               as="span"
               className={isHeroVisible ? "text-light" : "text-dark"}
               onClick={() => scrollToSection("home")}
+              style={{ cursor: "pointer" }}
             >
               Home
             </Nav.Link>
@@ -63,6 +73,7 @@ const Header = () => {
               as="span"
               className={isHeroVisible ? "text-light" : "text-dark"}
               onClick={() => scrollToSection("about")}
+              style={{ cursor: "pointer" }}
             >
               About Us
             </Nav.Link>
@@ -70,6 +81,7 @@ const Header = () => {
               as="span"
               className={isHeroVisible ? "text-light" : "text-dark"}
               onClick={() => scrollToSection("achievements")}
+              style={{ cursor: "pointer" }}
             >
               Achievements
             </Nav.Link>
@@ -77,15 +89,27 @@ const Header = () => {
               as="span"
               className={isHeroVisible ? "text-light" : "text-dark"}
               onClick={() => scrollToSection("products")}
+              style={{ cursor: "pointer" }}
             >
               Products
             </Nav.Link>
-            <Nav.Link
-              as="span"
-              className={isHeroVisible ? "text-light" : "text-dark"}
-              onClick={() => scrollToSection("contact")}
-            >
-              Contact
+            <Nav.Link as="span">
+              <Link
+                to="/team"
+                className={isHeroVisible ? "text-light" : "text-dark"}
+                style={{ textDecoration: "none",cursor: "pointer" }}
+              >
+                Team
+              </Link>
+            </Nav.Link>
+            <Nav.Link as="span">
+              <Link
+                to="/newsPage"
+                className={isHeroVisible ? "text-light" : "text-dark"}
+                style={{ textDecoration: "none",cursor: "pointer" }}
+              >
+                News
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

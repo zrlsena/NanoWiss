@@ -6,7 +6,7 @@ const AboutUs = () => {
     const darkpurple = "#470069"; 
     const purple = "#7F03BB"; // Mavi
     const lightpurple = "#BB58FF";
-    const blue = "#1733B8"; // Mavi
+    const blue = "#3361AC"; // Mavi
     const white = "#efeeec";
 
   const [section, setSection] = useState('whoWeAre');
@@ -16,19 +16,19 @@ const AboutUs = () => {
   };
 
   return (
-    <div id="about" style={{ padding: '2%', fontFamily: 'Arial, sans-serif', height: 'auto', marginRight: '0px', marginLeft: '0px', backgroundColor:darkpurple,}}>
+    <div id="about" style={{ padding: '1%', fontFamily: 'Arial, sans-serif', height: 'auto', marginRight: '0px', marginLeft: '0px', backgroundColor:darkpurple,}}>
       <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
         <div className="row">
           {/* Left Section */}
-          <div className="col-md-8" style={{ padding: '5%', height: 'auto', minHeight: '250px' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: 'bold',color:white }}>
+          <div className="col-md-8" style={{ padding: '5%', height: 'auto', }}>
+            <h2 style={{ fontSize: '40px', fontWeight: 'bold',color:white,marginTop:'30px' }}>
               {section === 'whoWeAre'
                 ? 'Who We Are'
                 : section === 'ourPurpose'
                 ? 'What is Our Purpose'
                 : 'Our Mission and Vision'}
             </h2>
-            <p style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '300px',color:'#efeeec' }}>
+            <p style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '300px',color:'#efeeec',minHeight: '250px', }}>
               {section === 'whoWeAre'
                 ? "nanoWISS is an innovative startup that originated from a shared mission to tackle pressing challenges such as Cystic Fibrosis and biofilm-related infections. Specializing in the development of autonomous devices for optimizing and standardizing nanoparticle production, we also create high-quality nanoparticles tailored for various applications. Our multidisciplinary team integrates expertise in nanotechnology, biotechnology, and engineering to deliver groundbreaking solutions that bridge science and industry."
                 : section === 'ourPurpose'

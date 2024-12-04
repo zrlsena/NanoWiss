@@ -4,8 +4,8 @@ import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import Achievements from '../components/Achievements';
 import Products from '../components/Products';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import News from '../components/News';
 
 function Home() {
   return (
@@ -15,7 +15,7 @@ function Home() {
       <AboutUs />
       <Achievements />
       <Products />
-      <Contact />
+      <News />
       <Footer />
     </div>
   );

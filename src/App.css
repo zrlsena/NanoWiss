@@ -64,6 +64,10 @@ header {
   transform: scale(1.05); /* Hover efektinde büyüme */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hoverda gölge ekleme */
 }
+.no-hover:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
 
 .custom-line {
   border: none;
@@ -89,3 +93,89 @@ header {
   background-color: white; /* Düz beyaz */
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
+
+.btn:hover {
+ color: #efeeec;
+ background-color: #162f65;
+ border-color: #162f65;
+ 
+}
+
+.btn{
+  color:#162f65;
+  border-color: #162f65;
+  font-size: 15px;
+    font-weight: 700;
+}
+/* Hamburger menü ikonunun rengini beyaz yap */
+.navbar-toggler-icon {
+  border-radius: 5px; /* İkonu yuvarlak yap */
+  background-color: rgba(188, 188, 188, 0.2);
+  color: white;
+  
+margin: 0;}
+
+/* Hamburger menü düğmesinin üzerine gelindiğinde renk değişimi */
+.navbar-toggler:hover {
+  background-color: #BB58FF !important; /* Tıklandığında arka plan rengini değiştir */
+}
+.navbar-toggler{
+  padding: 0;
+  border-width: 0;
+}
+
+/* Navbar'da toggler açıkken ve menü açıldığında yükseklik arttırılıyor */
+.navbar-collapse.collapse.show {
+  height: 100vh !important; /* Menünün içeriğine göre yükseklik ayarlanıyor */
+  background-color: rgba(41, 2, 67, 0.9); /* %50 şeffaf mor */
+  padding-left: 20px;
+  position: fixed;
+  width: 100%;
+left: 0px;
+right: 0px;
+top: 80px;
+padding-top: 60px;
+}
+
+.navbar-collapse.collapse.show .nav-link.text-dark,
+.navbar-collapse.collapse.show .nav-link.text-light,
+
+.navbar-collapse.collapse.show .navbar-nav .text-dark,
+.navbar-collapse.collapse.show .navbar-nav .text-light
+ {
+  color: white !important;
+  font-size:24px ;
+  font-weight: 700 ;
+  padding-left: 30px;
+  letter-spacing: 0.1em;
+}
+.navbar-collapse {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Navbar açıldığında görünürlük sağlamak */
+.navbar-collapse.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navbar linkleri için animasyon */
+.navbar-nav .nav-link {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Navbar gösterildiğinde linklerin görünür olması ve kaymaması */
+.navbar-collapse.show .nav-link {
+  opacity: 1;
+}
+
+/* Linklerin üzerine tıklanabilirken stil değişikliği */
+.navbar-nav .nav-link:hover {
+  color: #470069; /* Hover rengi */
+}
+
+
+
