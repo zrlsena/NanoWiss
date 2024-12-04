@@ -17,9 +17,9 @@ function NewsPage() {
           backgroundImage: "url('https://aricevre.com/wp-content/uploads/2024/08/close-up-hand-holding-lab-tube-scaled.jpg')", // Banner görseli
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "460px",
+          height: 'auto',
           position: "relative",
-          padding: "160px",
+          padding: "10%",
           
         }}
       >
