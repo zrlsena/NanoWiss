@@ -1,7 +1,7 @@
 import React from "react";
 import {  Container, Row, Col } from "react-bootstrap";
 import geminiImage from "../assets/geminiW.png";
-import backgroundVideo from "../assets/dna.mp4"; 
+import backgroundVideo from "../assets/video2.mp4"; 
 
 const Hero = () => {
   return (
@@ -39,7 +39,7 @@ const Hero = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "rgba(128, 0, 128, 0.99)", // Hafif mor bir ton
+          background: "rgba(0, 0, 0, 0.5)", // Hafif mor bir ton
           mixBlendMode: "multiply", // Renk efektlerini karıştırır
           zIndex: 0, // Videonun üstüne ama içeriğin altına geçer
         }}
