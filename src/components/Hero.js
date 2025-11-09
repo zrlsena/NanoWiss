@@ -1,7 +1,7 @@
 import React from "react";
 import {  Container, Row, Col } from "react-bootstrap";
 import geminiImage from "../assets/geminiW.png";
-import backgroundVideo from "../assets/video2.mp4"; 
+import backgroundVideo from "../assets/nanovideo2.mp4"; 
 
 const Hero = () => {
   return (
