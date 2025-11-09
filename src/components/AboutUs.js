@@ -4,9 +4,7 @@ import { FaUserAlt, FaBullseye, FaUsers, FaEye } from 'react-icons/fa';
 
 const AboutUs = () => {
     const darkpurple = "#470069"; 
-    const purple = "#7F03BB"; // Mavi
-    const lightpurple = "#BB58FF";
-    const blue = "#3361AC"; // Mavi
+    
     const white = "#efeeec";
 
   const [section, setSection] = useState('whoWeAre');

@@ -6,7 +6,7 @@ const Header = () => {
   const location = useLocation();
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-  const handleScroll = () => {
+  /*const handleScroll = () => {
     if (location.pathname !== "/") {
       setIsHeroVisible(false); // Diğer sayfalarda solid yap
       return;
@@ -16,7 +16,7 @@ const Header = () => {
     const rect = heroSection.getBoundingClientRect();
     setIsHeroVisible(rect.bottom > 0);
   };
-
+*/
   useEffect(() => {
     if (location.pathname !== "/") {
       setIsHeroVisible(false); // Sayfa değiştiğinde transparanlığı kapat
