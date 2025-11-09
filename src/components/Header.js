@@ -23,9 +23,9 @@ const Header = () => {
     } else {
       setIsHeroVisible(true); // Ana sayfadaysa transparanlığı kontrol et
     }
-    window.addEventListener("scroll", handleScroll);
+    /*window.addEventListener("scroll", handleScroll);*/
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      /*window.removeEventListener("scroll", handleScroll);*/
     };
   }, [location.pathname]);
 
