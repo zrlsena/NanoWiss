@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
@@ -6,28 +6,30 @@ const Header = () => {
   const location = useLocation();
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-  const handleScroll = () => {
+  // useCallback ile handleScroll’u sarmalıyoruz, böylece useEffect dependency’si stabil oluyor
+  const handleScroll = useCallback(() => {
     if (location.pathname !== "/") {
-      setIsHeroVisible(false); // Diğer sayfalarda solid yap
+      setIsHeroVisible(false);
       return;
     }
     const heroSection = document.getElementById("home");
     if (!heroSection) return;
     const rect = heroSection.getBoundingClientRect();
     setIsHeroVisible(rect.bottom > 0);
-  };
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname !== "/") {
-      setIsHeroVisible(false); // Sayfa değiştiğinde transparanlığı kapat
+      setIsHeroVisible(false);
     } else {
-      setIsHeroVisible(true); // Ana sayfadaysa transparanlığı kontrol et
+      setIsHeroVisible(true);
     }
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [location.pathname]);
+  }, [handleScroll, location.pathname]); // handleScroll artık dependency olarak ekli
 
   const scrollToSection = (id) => {
     if (location.pathname !== "/") {
@@ -43,9 +45,7 @@ const Header = () => {
       expand="lg"
       fixed="top"
       className={`shadow-sm ${
-        isHeroVisible
-          ? "navbar-transparent" // Transparan sınıfı
-          : "navbar-solid" // Düz arka plan sınıfı
+        isHeroVisible ? "navbar-transparent" : "navbar-solid"
       }`}
       style={{ height: "80px" }}
     >
@@ -61,43 +61,22 @@ const Header = () => {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link
-              as="span"
-              className={isHeroVisible ? "text-light" : "text-dark"}
-              onClick={() => scrollToSection("home")}
-              style={{ cursor: "pointer" }}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              as="span"
-              className={isHeroVisible ? "text-light" : "text-dark"}
-              onClick={() => scrollToSection("about")}
-              style={{ cursor: "pointer" }}
-            >
-              About Us
-            </Nav.Link>
-            <Nav.Link
-              as="span"
-              className={isHeroVisible ? "text-light" : "text-dark"}
-              onClick={() => scrollToSection("achievements")}
-              style={{ cursor: "pointer" }}
-            >
-              Achievements
-            </Nav.Link>
-            <Nav.Link
-              as="span"
-              className={isHeroVisible ? "text-light" : "text-dark"}
-              onClick={() => scrollToSection("products")}
-              style={{ cursor: "pointer" }}
-            >
-              Products
-            </Nav.Link>
+            {["home", "about", "achievements", "products"].map((id) => (
+              <Nav.Link
+                key={id}
+                as="span"
+                className={isHeroVisible ? "text-light" : "text-dark"}
+                onClick={() => scrollToSection(id)}
+                style={{ cursor: "pointer" }}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </Nav.Link>
+            ))}
             <Nav.Link as="span">
               <Link
                 to="/team"
                 className={isHeroVisible ? "text-light" : "text-dark"}
-                style={{ textDecoration: "none",cursor: "pointer" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
               >
                 Team
               </Link>
@@ -106,7 +85,7 @@ const Header = () => {
               <Link
                 to="/newsPage"
                 className={isHeroVisible ? "text-light" : "text-dark"}
-                style={{ textDecoration: "none",cursor: "pointer" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
               >
                 News
               </Link>
