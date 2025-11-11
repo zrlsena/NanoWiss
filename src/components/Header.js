@@ -29,14 +29,15 @@ const Header = () => {
     };
   }, [location.pathname]);
 
-  const scrollToSection = (id) => {
-    if (location.pathname !== "/") {
-      window.location.href = `/#${id}`;
-    } else {
-      const section = document.getElementById(id);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+ const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = `/#${id}`;
+  }
+};
+
 
   return (
     <Navbar
