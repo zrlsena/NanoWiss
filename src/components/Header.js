@@ -6,7 +6,7 @@ const Header = () => {
   const location = useLocation();
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-  /*const handleScroll = () => {
+  const handleScroll = () => {
     if (location.pathname !== "/") {
       setIsHeroVisible(false); // Diğer sayfalarda solid yap
       return;
@@ -16,28 +16,27 @@ const Header = () => {
     const rect = heroSection.getBoundingClientRect();
     setIsHeroVisible(rect.bottom > 0);
   };
-*/
+
   useEffect(() => {
     if (location.pathname !== "/") {
       setIsHeroVisible(false); // Sayfa değiştiğinde transparanlığı kapat
     } else {
       setIsHeroVisible(true); // Ana sayfadaysa transparanlığı kontrol et
     }
-    /*window.addEventListener("scroll", handleScroll);*/
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      /*window.removeEventListener("scroll", handleScroll);*/
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
 
- const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  } else {
-    window.location.href = `/#${id}`;
-  }
-};
-
+  const scrollToSection = (id) => {
+    if (location.pathname !== "/") {
+      window.location.href = `/#${id}`;
+    } else {
+      const section = document.getElementById(id);
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <Navbar
