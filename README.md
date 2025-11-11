@@ -2,7 +2,7 @@
 
 This project is a **landing page web application** with additional **Team** and **News** pages. The interface is designed to provide a seamless user experience with interactive components, dynamic content, and responsive design.
 
-![Ekran görüntüsü 2024-12-04 142624](https://github.com/user-attachments/assets/46108a7c-2180-4a6f-b5ab-d9aef8b26264)
+<img width="1470" height="831" alt="Screenshot 2025-11-11 at 14 17 23" src="https://github.com/user-attachments/assets/dbecf582-303d-4446-a515-4f9bd8d0884d" />
 
 ---
 
