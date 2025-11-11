@@ -65,9 +65,7 @@ function News() {
                 <h6 style={{color:'#162f65',fontSize:'14px', fontWeight:'300'}}>{item.date}</h6>
                 <h5 style={{color:'#3361ac',fontSize:'20px' ,fontWeight:'700'}}>{item.title}</h5>
                 <p style={{color:'#162f65',fontSize:'16px', fontWeight:'300'}}>{item.details}</p>
-                <a href={item.link} style={{color:'#162f65',fontSize:'14px', fontWeight:'700'}}>
-                  Read More
-                </a>
+                
               </div>
             </div>
           </div>
