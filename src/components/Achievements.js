@@ -32,8 +32,7 @@ const Achievements = () => {
           What We Have Done So Far
         </h2>
         <p className="text-center text-muted mb-5">
-          At NanoWiss, we are proud of our remarkable journey, highlighted by
-          our innovative milestones and strategic collaborations.
+          We have been carrying out various projects since March 2023. We have established several partnerships that have supported us throughout this process.
         </p>
 
         {/* Achievements Section */}
@@ -46,7 +45,11 @@ const Achievements = () => {
                   className="achievement-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-4"
                   style={{ width: '80px', height: '80px' }}
                 >
-                  <i className="bi bi-building"></i>
+                  <img 
+                    src="/image 6.png" 
+                    alt="teknopark" 
+                    style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  />
                 </div>
                 <Card.Title className="text-center fw-bold">
                   TeknoPark Partnership

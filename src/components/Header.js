@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import nanologo from "../assets/nanologo.png";
+import nanologoBlack from "../assets/nanologoblack.png";
 
 const Header = () => {
   const location = useLocation();
@@ -53,11 +55,16 @@ const Header = () => {
         <Navbar.Brand
           as={Link}
           to="/"
-          className="fw-bold"
-          style={{ color: isHeroVisible ? "white" : "purple" }}
         >
-          NanoWiss
+          <img
+            src={isHeroVisible ? nanologo : nanologoBlack}
+            alt="NanoWiss Logo"
+            style={{
+              height: "180px",
+            }}
+          />
         </Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">

@@ -108,9 +108,30 @@ header {
     font-weight: 700;
 }
 /* Hamburger menü ikonunun rengini beyaz yap */
+.navbar {
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+    display: flex;
+
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+   height: 80px;
+}
+
+
+.navbar-brand img {
+  height: 180px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  
+}
+
 .navbar-toggler-icon {
   border-radius: 5px; /* İkonu yuvarlak yap */
-  background-color: rgba(188, 188, 188, 0.2);
+  background-color: transparent;
   color: white;
   
 margin: 0;}
